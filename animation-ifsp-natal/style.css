@@ -1,0 +1,162 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box
+}
+
+body {
+  min-height: 100vh;
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Winky Sans';
+  color: white;
+  background-image: url('img/fundo.png');
+  background-size: cover;
+}
+
+span {
+  color: red;
+}
+
+.container {
+  width: min(500px, 100%);
+  text-align: center
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: clamp(24px, 5vw, 32px)
+}
+
+.arvore-container {
+  position: relative;
+  width: min(400px, 100%);
+  margin: 0 auto
+}
+
+.arvore {
+  display: block;
+  width: 100%;
+  height: auto
+}
+
+.enfeites {
+  position: absolute;
+  inset: 0;
+  pointer-events: none
+}
+
+
+.bolinha {
+  position: absolute;
+  width: 11%;
+  height: auto;
+
+  animation:
+    cair-e-voltar 10s linear infinite,
+    chacoalhar 10s ease-in-out infinite;
+}
+
+.bolinha-1 {
+  top: 25%;
+  left: 43%;
+  --queda: 256px;
+  animation-delay: 0s;
+}
+
+.bolinha-2 {
+  top: 38%;
+  left: 27%;
+  --queda: 204px;
+  animation-delay: 3s;
+}
+
+.bolinha-3 {
+  top: 49%;
+  left: 61%;
+  --queda: 160px;
+  animation-delay: 6s;
+}
+
+.bolinha-4 {
+  top: 62%;
+  left: 39%;
+  --queda: 108px;
+  animation-delay: 9s;
+}
+
+.bolinha-5 {
+  top: 72%;
+  left: 68%;
+  --queda: 68px;
+  animation-delay: 12s;
+}
+
+.bolinha-4,
+.bolinha-5 {
+  animation-duration: 9s, 12s;
+}
+
+@keyframes chacoalhar {
+
+  0%,
+  1%,
+  5%,
+  100% {
+    rotate: 0deg;
+  }
+
+  2% {
+    rotate: -8deg;
+  }
+
+  3% {
+    rotate: 8deg;
+  }
+
+  4% {
+    rotate: -5deg;
+  }
+}
+
+@keyframes cair-e-voltar {
+
+  0%,
+  5% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  20% {
+    transform: translateY(var(--queda));
+    opacity: 1;
+  }
+
+  45% {
+    transform: translateY(var(--queda));
+    opacity: 0;
+  }
+
+  55% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+
+  65% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  .bolinha {
+    animation: none
+  }
+}
